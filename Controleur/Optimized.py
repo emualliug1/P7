@@ -22,7 +22,7 @@ class Optimized:
 
     def trier_liste(self) -> [list]:
         """
-        Trie la liste par rendement du plus élevé au plus faible
+        Trie la liste par profit du plus élevé au plus faible
         :return: [list]
         """
         self.modele.actions.sort(key=itemgetter(PROFIT), reverse=True)
@@ -30,7 +30,7 @@ class Optimized:
 
     def executer(self) -> [list]:
         """
-        Executer la recherche en optimized
+        Executer la recherche en optimisé
         :return: [list]
         """
         self.modele.supprimer_action_nul()

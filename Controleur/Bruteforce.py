@@ -19,7 +19,7 @@ class Bruteforce:
 
     def chercher_rentabilite(self) -> [list]:
         """
-        Recherche la meilleure action en fonction du rendement
+        Recherche la meilleure action en fonction du profit
         :return: [list]
         """
         self.modele.max = 0
