@@ -1,5 +1,13 @@
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
+# Importation de fonction externe :
 from rich.layout import Layout
 from rich.console import Console
+#############################################
+# Définition de la classe
 
 
 class Affichage(Console):
@@ -19,7 +27,7 @@ class Affichage(Console):
         input()
 
     def creer_ecran(self):
-        """Créer l'écran de la console en la divisant en case"""
+        """Créer l'écran de la console en la divisant en block"""
         self.ecran.split_row(
             self.ecran_bruteforce,
             self.ecran_optimized

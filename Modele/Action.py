@@ -1,8 +1,16 @@
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
+# Importation de fonction externe :
 import pandas as pd
 from rich.table import Table
 from rich import box
-
+#############################################
+# Définition des constantes
 RENDEMENT = 4
+# Définition de la classe
 
 
 class Action:

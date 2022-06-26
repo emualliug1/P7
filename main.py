@@ -1,3 +1,9 @@
+# -*- coding:Utf8 -*-
+#############################################
+# Programme Python type
+# Auteur: G.T,Nt,2022
+#############################################
+# Importation de fonction externe :
 from Controleur import Bruteforce
 from Controleur import Optimized
 from Modele import Action
@@ -7,6 +13,7 @@ from rich.panel import Panel
 import cProfile
 import io
 import pstats
+#############################################
 
 
 def main():
@@ -48,12 +55,14 @@ def main():
                                                   title='Profiler', border_style='blue'))
         vue.pause_ecran()
 
-def bruteforce():
+
+def bruteforce_profiler():
     modele_bruteforce = Action('Data/dataset2.csv')
     bruteforce = Bruteforce(modele_bruteforce)
     bruteforce.executer()
 
-def optimized():
+
+def optimized_profiler():
     modele_optimized = Action('Data/dataset2.csv')
     optimized = Optimized(modele_optimized)
     optimized.executer()

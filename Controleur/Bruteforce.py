@@ -3,10 +3,13 @@
 # Programme Python type
 # Auteur: G.T,Nt,2022
 #############################################
+#############################################
+# Importation de fonction externe :
 from rich.table import Table
+#############################################
+# Définition des constantes
 PRIX = 2
 RENDEMENT = 4
-
 # Définition de la classe
 
 

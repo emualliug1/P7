@@ -7,9 +7,10 @@
 from operator import itemgetter
 from rich.table import Table
 #############################################
-
+# Définition des constantes
 PRIX = 2
 RENDEMENT = 4
+# Définition de la classe
 
 
 class Optimized:
