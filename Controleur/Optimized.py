@@ -5,18 +5,17 @@
 #############################################
 # Importation de fonction externe :
 from operator import itemgetter
-from rich.table import Table
 #############################################
 # Définition des constantes
 PRIX = 2
-RENDEMENT = 4
 PROFIT = 3
+PROFIT_REEL = 4
 # Définition de la classe
 
 
 class Optimized:
     """
-      Permet la recherche des actions les plus pertinentes dans un fichier .csv
+      Permet la recherche des actions les plus pertinentes dans un fichier en version optimisé .csv
     """
     def __init__(self, modele):
         self.modele = modele
@@ -26,7 +25,7 @@ class Optimized:
         Trie la liste par rendement du plus élevé au plus faible
         :return: [list]
         """
-        self.modele.actions.sort(key=itemgetter(RENDEMENT), reverse=True)
+        self.modele.actions.sort(key=itemgetter(PROFIT), reverse=True)
         return self.modele.actions
 
     def executer(self) -> [list]:
@@ -46,22 +45,3 @@ class Optimized:
                                              round(self.modele.budget, 2),
                                              round(self.modele.gain, 2)])
         return self.modele.resultat
-
-    def remplir_tableau(self) -> [Table]:
-        """
-        Creer un tableau pour le resultat de la recherche
-        :return: [Table]
-        """
-        self.modele.creer_tableau()
-        for action in self.modele.resultat:
-            self.modele.tableau.add_row(
-                str(action[0][0]),
-                str(action[0][1]),
-                str(action[0][2]),
-                str(action[0][3]),
-                str(action[0][4]),
-                str(action[1]),
-                str(action[2]))
-        return self.modele.tableau
-
-

@@ -3,14 +3,10 @@
 # Programme Python type
 # Auteur: G.T,Nt,2022
 #############################################
-#############################################
-# Importation de fonction externe :
-from rich.table import Table
-#############################################
 # Définition des constantes
 PRIX = 2
 PROFIT = 3
-RENDEMENT = 4
+PROFIT_REEL = 4
 # Définition de la classe
 
 
@@ -26,10 +22,10 @@ class Bruteforce:
         Recherche la meilleure action en fonction du rendement
         :return: [list]
         """
-        self.modele.max_rentabilite = 0
+        self.modele.max = 0
         for index, action in enumerate(self.modele.actions):
-            if action[PROFIT] > self.modele.max_rentabilite:
-                self.modele.max_rentabilite = action[PROFIT]
+            if action[PROFIT] > self.modele.max:
+                self.modele.max = action[PROFIT]
                 self.modele.meilleur_action = action
                 self.modele.index_action = index
         return self.modele.meilleur_action
@@ -41,7 +37,7 @@ class Bruteforce:
         """
         if self.modele.budget >= self.modele.meilleur_action[PRIX]:
             self.modele.budget = self.modele.budget - self.modele.meilleur_action[PRIX]
-            self.modele.gain = self.modele.gain + self.modele.meilleur_action[RENDEMENT]
+            self.modele.gain = self.modele.gain + self.modele.meilleur_action[PROFIT_REEL]
             self.modele.resultat.append([self.modele.meilleur_action,
                                          round(self.modele.budget, 2),
                                          round(self.modele.gain, 2)])
@@ -53,7 +49,6 @@ class Bruteforce:
     def executer(self):
         """
         Execute la recherche en force brute
-        :return: [list]
         """
         self.modele.supprimer_action_nul()
         while True:
@@ -62,20 +57,3 @@ class Bruteforce:
                 Bruteforce.calculer_budget(self)
             else:
                 return False
-
-    def remplir_tableau(self) -> [Table]:
-        """
-        Creer un tableau pour le resultat de la recherche
-        :return: [Table]
-        """
-        self.modele.creer_tableau()
-        for action in self.modele.resultat:
-            self.modele.tableau.add_row(
-                str(action[0][0]),
-                str(action[0][1]),
-                str(action[0][2]),
-                str(action[0][3]),
-                str(action[0][4]),
-                str(action[1]),
-                str(action[2]))
-        return self.modele.tableau

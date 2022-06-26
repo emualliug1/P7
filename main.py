@@ -17,7 +17,7 @@ import pstats
 
 
 def main():
-    modele_bruteforce = Action('Data/dataset2.csv')
+    modele_bruteforce = Action('Data/dataset0.csv')
     modele_optimized = Action('Data/dataset2.csv')
 
     vue = Affichage()
@@ -44,29 +44,16 @@ def main():
     opti_stats = str((opti_io.getvalue()))
 
     with Live(vue.creer_ecran(), refresh_per_second=0.5, screen=True):
-        vue.ecran_bruteforce_resultat.update(Panel(bruteforce.remplir_tableau(),
+        vue.ecran_bruteforce_resultat.update(Panel(bruteforce.modele.creer_tableau(),
                                                    title='Brute Force', border_style='red'))
         vue.ecran_bruteforce_profiler.update(Panel(bf_stats,
                                                    title='Profiler', border_style='red'))
 
-        vue.ecran_optimized_resultat.update(Panel(optimized.remplir_tableau(),
+        vue.ecran_optimized_resultat.update(Panel(optimized.modele.creer_tableau(),
                                                   title='Optimized', border_style='blue'))
         vue.ecran_optimized_profiler.update(Panel(opti_stats,
                                                   title='Profiler', border_style='blue'))
         vue.pause_ecran()
-
-
-def bruteforce_profiler():
-    modele_bruteforce = Action('Data/dataset2.csv')
-    bruteforce = Bruteforce(modele_bruteforce)
-    bruteforce.executer()
-
-
-def optimized_profiler():
-    modele_optimized = Action('Data/dataset2.csv')
-    optimized = Optimized(modele_optimized)
-    optimized.executer()
-
 
 if __name__ == "__main__":
 
