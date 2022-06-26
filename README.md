@@ -2,7 +2,7 @@
 ## AlgoInvest&Trade
 
 ### Objectif :
-Étape 1 : Créer un algorithme brute force qui rechercher les meilleures actions dans un fichier csv de 20 actions.
+Étape 1 : Créer un algorithme brute force qui recherche les meilleures actions dans un fichier csv de 20 actions.
 
 Étape 2 : Créer un algorithme optimisé qui recherche les meilleures actions dans un fichier csv de 1000 actions.
 
