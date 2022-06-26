@@ -9,6 +9,7 @@ from rich.table import Table
 #############################################
 # Définition des constantes
 PRIX = 2
+PROFIT = 3
 RENDEMENT = 4
 # Définition de la classe
 
@@ -27,8 +28,8 @@ class Bruteforce:
         """
         self.modele.max_rentabilite = 0
         for index, action in enumerate(self.modele.actions):
-            if action[RENDEMENT] > self.modele.max_rentabilite:
-                self.modele.max_rentabilite = action[RENDEMENT]
+            if action[PROFIT] > self.modele.max_rentabilite:
+                self.modele.max_rentabilite = action[PROFIT]
                 self.modele.meilleur_action = action
                 self.modele.index_action = index
         return self.modele.meilleur_action

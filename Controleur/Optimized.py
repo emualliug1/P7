@@ -10,6 +10,7 @@ from rich.table import Table
 # Définition des constantes
 PRIX = 2
 RENDEMENT = 4
+PROFIT = 3
 # Définition de la classe
 
 
@@ -25,7 +26,7 @@ class Optimized:
         Trie la liste par rendement du plus élevé au plus faible
         :return: [list]
         """
-        self.modele.actions.sort(key=itemgetter(3), reverse=True)
+        self.modele.actions.sort(key=itemgetter(RENDEMENT), reverse=True)
         return self.modele.actions
 
     def executer(self) -> [list]:
